@@ -30,10 +30,9 @@ public class ConnectionFactory {
             // con=DriverManager.getConnection("jdbc:mysql://localhost/IMS?user=root&password");
             //con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mgl846_proj","root","root");
             //con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mgl846","root","root");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mgl846?" +
-            	                                   "user=root&password=root&useSSL=false");
+            this.getConnection();
             //System.out.println("got connection");
-            stmt=con.createStatement();
+            stmt=this.con.createStatement();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -42,17 +41,17 @@ public class ConnectionFactory {
     //method Connection starts
     public Connection getConnection(){
         try{
-        	String username = "username";
-        	String password = "password";
+        	String username = "Admin_Ims";
+        	String password = "Admin_Ims1";
         	String url = "jdbc:mysql://phpmyadmin.yew.arvixe.com/ims";
             Class.forName("com.mysql.jdbc.Driver");
             // con=DriverManager.getConnection("jdbc:mysql://localhost/IMS?user=root&password");
             //con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mgl846_proj","root","root");
-            con = DriverManager.getConnection(url, username, password);
+            this.con = DriverManager.getConnection(url, username, password);
         }catch(Exception e){
             e.printStackTrace();
         }
-        return con;
+        return this.con;
     }//end of method Connection
     
     //method checkLogin starts
